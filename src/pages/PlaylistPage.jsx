@@ -29,7 +29,7 @@ const PlaylistPage = () => {
                 Create Playlist
               </button>
             </div>
-            {displayPlaylists ? (
+            {displayPlaylists && displayPlaylists.length ? (
               <div className='cardsContainer'>
                 {displayPlaylists.map((playlist, index) => (
                   <PlaylistCard key={index} playlist={playlist} />

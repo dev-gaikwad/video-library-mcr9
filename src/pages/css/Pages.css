@@ -7,6 +7,14 @@
 .sectionHeader {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding-right: 2rem;
+}
+
+.sectionHeader input {
+  height: 2rem;
+  width: 15rem;
+  padding-left: 0.5rem;
 }
 
 .cardsContainer {
@@ -35,11 +43,15 @@
 }
 
 .selectPlaylist {
-  border: 1px solid red;
+  border: 1px solid var(--secondary-text);
   position: absolute;
   top: 0;
   right: 0;
   min-width: 7rem;
+}
+
+.selectPlaylist small {
+  font-size: 0.75rem;
 }
 
 .selectPlaylist li:hover {

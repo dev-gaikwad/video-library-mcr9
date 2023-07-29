@@ -5,63 +5,64 @@ import {
   MdPlaylistPlay,
   MdWatchLater,
 } from 'react-icons/md';
-import { NavLink } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import styles from './Navbar.module.css';
 
-const activeStyle = {
-  backgroundColor: '#ff0000',
-  color: '#fff',
-  borderRadius: '9999px',
-  width: 'max-content',
-  fontWeight: 'bold',
-  transform: 'scale(1.05)',
-};
-
 const Navbar = () => {
+  const location = useLocation();
+
+  const pathMatchRoute = (route) => route === location.pathname;
+
   return (
     <nav className={styles.navbarContainer}>
       <ul className={styles.navbarList}>
-        <li className={styles.navlistItems}>
-          <NavLink
-            to='/'
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            className={styles.navLink}
+        <Link to='/'>
+          <li
+            className={
+              pathMatchRoute('/') ? styles.navListActive : styles.navlistItems
+            }
           >
             <MdHome />
             <span>Home</span>
-          </NavLink>
-        </li>
-        <li className={styles.navlistItems}>
-          <NavLink
-            to='/explore'
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            className={styles.navLink}
+          </li>
+        </Link>
+        <Link to='/explore'>
+          <li
+            className={
+              pathMatchRoute('/explore')
+                ? styles.navListActive
+                : styles.navlistItems
+            }
           >
             <MdExplore />
             <span>Explore</span>
-          </NavLink>
-        </li>
-        <li className={styles.navlistItems}>
-          <NavLink
-            to='/playlist'
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            className={styles.navLink}
+          </li>
+        </Link>
+        <Link to='/playlist'>
+          <li
+            className={
+              pathMatchRoute('/playlist')
+                ? styles.navListActive
+                : styles.navlistItems
+            }
           >
             <MdPlaylistPlay />
             <span>Playlist</span>
-          </NavLink>
-        </li>
-        <li className={styles.navlistItems}>
-          <NavLink
-            to='/watchlater'
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            className={styles.navLink}
+          </li>
+        </Link>
+        <Link to='/watchlater'>
+          <li
+            className={
+              pathMatchRoute('/watchlater')
+                ? styles.navListActive
+                : styles.navlistItems
+            }
           >
             <MdWatchLater />
             <span>Watch Later</span>
-          </NavLink>
-        </li>
+          </li>
+        </Link>
       </ul>
     </nav>
   );

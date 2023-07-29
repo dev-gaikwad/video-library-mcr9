@@ -18,17 +18,19 @@ const PlaylistDetailsPage = () => {
           <>
             <h2>{name}</h2>
             <div className='content'>
-              {playlistDetails.videos.map((video) => (
-                <div key={video._id}>
-                  <VideoCard video={video} />
-                  <button
-                    className='btn-primary'
-                    onClick={() => removeFromPlaylist(video, name)}
-                  >
-                    Remove from playlist
-                  </button>
-                </div>
-              ))}
+              <div className='cardsContainer'>
+                {playlistDetails.videos.map((video) => (
+                  <div key={video._id}>
+                    <VideoCard video={video} />
+                    <button
+                      className='btn-primary'
+                      onClick={() => removeFromPlaylist(video, name)}
+                    >
+                      Remove from playlist
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
           </>
         )}

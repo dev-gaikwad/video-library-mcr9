@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   MdOutlineWatchLater,
   MdWatchLater,
@@ -11,6 +11,7 @@ import Navbar from '../components/Navbar/Navbar';
 import { useVideo } from '../context/VideoContext';
 
 import './css/Pages.css';
+import { toast } from 'react-toastify';
 
 const VideoPage = () => {
   const [selectedVideo, setSelectedVideo] = useState();
@@ -20,6 +21,7 @@ const VideoPage = () => {
   const { id } = useParams();
   const { allVideos, addToPlaylist, playlists, watchLater, updateWatchLater } =
     useVideo();
+  const navigate = useNavigate();
 
   const video = allVideos.find((video) => video._id === +id);
 
@@ -72,19 +74,32 @@ const VideoPage = () => {
                 )}
 
                 <MdPlaylistAdd onClick={() => addHandler(video)} />
-                <MdNoteAdd />
-                {selectPlaylistModal && (
-                  <ul className='selectPlaylist'>
-                    {playlists.map((playlist, index) => (
-                      <li
-                        key={index}
-                        onClick={() => playlistSelectHandler(playlist.name)}
-                      >
-                        {playlist.name}
+                <MdNoteAdd onClick={() => toast.info('Feature coming soon')} />
+                {selectPlaylistModal &&
+                  (playlists.length ? (
+                    <ul className='selectPlaylist'>
+                      {playlists.map((playlist, index) => (
+                        <li
+                          key={index}
+                          onClick={() => playlistSelectHandler(playlist.name)}
+                        >
+                          {playlist.name}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <ul className='selectPlaylist'>
+                      <small>No playlist exists</small>
+                      <li>
+                        <button
+                          className='btn-primary'
+                          onClick={() => navigate('/playlist')}
+                        >
+                          Create New
+                        </button>
                       </li>
-                    ))}
-                  </ul>
-                )}
+                    </ul>
+                  ))}
               </div>
             </div>
           </section>

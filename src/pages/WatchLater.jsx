@@ -14,13 +14,15 @@ const WatchLater = () => {
         <section>
           <h2>Watch Later</h2>
           <div className='content'>
-            {watchLater && watchLater.length ? (
-              watchLater.map((video) => (
-                <VideoCard key={video._id} video={video} />
-              ))
-            ) : (
-              <p>No videos added to watch later</p>
-            )}
+            <div className='cardsContainer'>
+              {watchLater && watchLater.length ? (
+                watchLater.map((video) => (
+                  <VideoCard key={video._id} video={video} />
+                ))
+              ) : (
+                <p>No videos added to watch later</p>
+              )}
+            </div>
           </div>
         </section>
       </div>
