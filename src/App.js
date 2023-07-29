@@ -11,6 +11,7 @@ import { VideoContextProvider } from './context/VideoContext';
 import PlaylistDetailsPage from './pages/PlaylistDetailsPage';
 import WatchLater from './pages/WatchLater';
 import CategoryWisePage from './pages/CategoryWisePage';
+import NotFound from './pages/404';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
             <Route path='/watchlater' element={<WatchLater />} />
             <Route path='/category/:name' element={<CategoryWisePage />} />
             <Route path='/playlist/:name/' element={<PlaylistDetailsPage />} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
         </VideoContextProvider>
       </Router>

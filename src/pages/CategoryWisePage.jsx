@@ -11,6 +11,8 @@ const CategoryWisePage = () => {
 
   useEffect(() => {
     filterByCategory();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

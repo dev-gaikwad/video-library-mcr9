@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './css/Pages.css';
 import Navbar from '../components/Navbar/Navbar';
@@ -7,6 +7,8 @@ import VideoCard from '../components/VideoCard/VideoCard';
 
 const ExplorePage = () => {
   const { searchedResultsList, searchVideosHandler } = useVideo();
+
+  useEffect(() => {}, []);
   return (
     <main>
       <Navbar />
