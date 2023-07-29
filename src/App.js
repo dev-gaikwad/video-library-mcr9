@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function App() {
+import Home from './pages/Home';
+import ExplorePage from './pages/ExplorePage';
+import PlaylistPage from './pages/PlaylistPage';
+import VideoPage from './pages/VideoPage';
+import { VideoContextProvider } from './context/VideoContext';
+import PlaylistDetailsPage from './pages/PlaylistDetailsPage';
+import WatchLater from './pages/WatchLater';
+import CategoryWisePage from './pages/CategoryWisePage';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <VideoContextProvider>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/explore' element={<ExplorePage />} />
+            <Route path='/playlist' element={<PlaylistPage />} />
+            <Route path='/video/:id' element={<VideoPage />} />
+            <Route path='/watchlater' element={<WatchLater />} />
+            <Route path='/category/:name' element={<CategoryWisePage />} />
+            <Route path='/playlist/:name/' element={<PlaylistDetailsPage />} />
+          </Routes>
+        </VideoContextProvider>
+      </Router>
+
+      <ToastContainer
+        position='top-center'
+        autoClose={2500}
+        draggable
+        pauseOnHover
+        pauseOnFocusLoss
+        closeButton={false}
+        theme='colored'
+      />
+    </>
   );
-}
+};
 
 export default App;

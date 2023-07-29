@@ -1,0 +1,52 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.videoInfoTab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.optionsContainer {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  position: relative;
+}
+
+.optionsContainer svg {
+  cursor: pointer;
+}
+
+.selectPlaylist {
+  border: 1px solid red;
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 7rem;
+}
+
+.selectPlaylist li:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.videoSection {
+  max-width: 50rem;
+}

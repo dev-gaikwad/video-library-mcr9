@@ -1,0 +1,22 @@
+.navbarContainer {
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  width: 20%;
+  height: 100vh;
+}
+
+.navbarList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.navlistItems {
+  padding: 0.25rem;
+}
+
+.navLink {
+  padding: 0.25rem;
+  width: 100%;
+}

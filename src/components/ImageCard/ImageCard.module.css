@@ -1,0 +1,15 @@
+.thumbnailContainer {
+  width: 250px;
+  height: 150px;
+  object-fit: cover;
+  position: relative;
+  cursor: pointer;
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+  margin: 0.5rem;
+}
+
+.thumbnailContainer img {
+  width: 250px;
+  height: 150px;
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+}
